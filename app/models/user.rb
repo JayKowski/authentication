@@ -1,11 +1,25 @@
 class User < ApplicationRecord
-    before_create 
+
+    attr_accessor :gen_token
+    before_create :create_token_and_save
+    before_save { email.downcase! }
+
+    validates :name, presence: true, length: { maximum: 50 } 
+    validates :email, presence: true 
 
     has_secure_password
 
-    def remember_token
-        @remember_token = Digest::SHA1.hexdigest(SecureRandom.urlsafe_base64.to_s)
-        @user.save
+    def self.new_token
+       SecureRandom.urlsafe_base64
+    end
+
+    def self.encrypted(string)
+        Digest::SHA1.hexdigest(string.to_s)
+    end 
+
+    def create_token_and_save
+        self.gen_token = User.new_token
+        self.remember_digest = User.encrypted(gen_token)
     end
 
     

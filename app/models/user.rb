@@ -4,7 +4,7 @@ class User < ApplicationRecord
     before_create :create_token_and_save
     before_save { email.downcase! }
 
-    validates :name, presence: true, length: { maximum: 50 } 
+    validates :username, presence: true, length: { maximum: 50 } 
     validates :email, presence: true 
 
     has_secure_password

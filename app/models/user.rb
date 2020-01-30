@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
     attr_accessor :gen_token
+    has_many :posts
     before_create :create_token_and_save
     before_save { email.downcase! }
 

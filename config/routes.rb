@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #resources :sessions
   resources :users, except: [:new]
 
-  # root 'sessions#new'
+  root 'welcome#home'
 
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'

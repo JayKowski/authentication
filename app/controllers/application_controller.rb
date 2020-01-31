@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
             redirect_to root_path
         end
     end
+
+    def create_token_and_save(user)
+        user.create_token_and_save
+        cookies.permanent.signed[:user_id] = user.id
+        cookies.permanent[:gen_token] = user.gen_token
+    end
 end

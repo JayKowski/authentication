@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts, only: [:new, :create, :index, :show] 
   #resources :sessions
   resources :users, except: [:new]
 

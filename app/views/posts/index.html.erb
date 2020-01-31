@@ -1,5 +1,9 @@
 <h1>ALL POSTS PAGE</h1>
 
+<% if logged_in? %>
+ <h3><%= link_to "Create Post", new_post_path%></h3>
+<% end %>
+
 <% @posts.each do |post|%>
     <hr>
     <p> <strong>Title:</strong> <%= post.title %></p>

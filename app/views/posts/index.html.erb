@@ -1,8 +1,14 @@
 <h1>ALL POSTS PAGE</h1>
 
-<%= @posts.each do |p|%>
+<% @posts.each do |post|%>
+    <hr>
+    <p> <strong>Title:</strong> <%= post.title %></p>
+    <p> <strong>body:</strong> <%= post.body %></p>
+    <% if logged_in? %>
+        <strong>Author:</strong> <%= post.user.username%> |  
+                   <%= time_ago_in_words(post.created_at) %> ago  |  
+                   last updated: <%= time_ago_in_words(post.updated_at) %>
+    <% end %>
 
-    <p>Title: <%= p.title %></p>
-    <p>body: <%= p.body %></p>
-
+   
 <% end %>

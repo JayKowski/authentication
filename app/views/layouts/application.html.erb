@@ -17,12 +17,10 @@
   <% end %>
 
     <% if logged_in? %>
-      <%= link_to  "logout", logout_path, method: :delete %>
+     <h2><%= link_to  "logout", logout_path, method: :delete %></h2>
 
     <% else %>
-      <%= link_to  "signup", signup_path %>
-
-      <%= link_to  "login", login_path %>
+     <h2><%= link_to  "signup", signup_path %> | <%= link_to  "login", login_path %></h2>
 
     <% end %>
 

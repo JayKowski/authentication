@@ -4,14 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def current_user
-    # if session[:user_id] != nil
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-    # elsif cookies.signed[:remember_digest] != nil
-    #   @current_user = User.find_by(id: cookies.signed[:remember_digest]) if cookies.signed[:remember_digest]
-    # end
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
-
-  # @current_user = User.find_by(id: cookies.signed[:user_id]) if cookies.signed[:user_id]
 
   def logged_in?
     !current_user.nil?
@@ -19,6 +13,7 @@ class ApplicationController < ActionController::Base
 
   def require_user
     return if logged_in?
+
     flash[:danger] = 'You must log in to perform that action'
     redirect_to root_path
   end

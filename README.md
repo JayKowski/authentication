@@ -1,5 +1,5 @@
-# micro-reddit
-Let’s build Reddit. Well, maybe a very junior version of it called micro-reddit. In this project, you’ll build the data structures necessary to support link submissions and commenting.
+# custom user authentication
+Let’s build a user authentication system. In this project, we have built the data structures necessary to support link submissions and commenting and also user authentication with cookies and sessions
 ## License
 All source code in the [Ruby on Rails Tutorial](https://www.railstutorial.org/)
 is available jointly under the MIT License and the Beerware License. See
